@@ -18,7 +18,7 @@ namespace DataBasePortfolio.Model
         [Required]
         public string CompanyName { get; set; }//会社名    
         [Required]
-        public string President  { get; set; }//代表取締役
+        public string President  { get; set; }//代表取締役、姓名にスペースなし
         [Required]
         public string URL { get; set; }//会社概要のURL
     }
