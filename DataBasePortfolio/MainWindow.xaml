@@ -22,22 +22,22 @@
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="10,5,10,0" HorizontalAlignment="Center">Simple WPF Control</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="10,5,10,0" HorizontalAlignment="Center"><Run Language="ja-jp" Text="CompanyDB"/><LineBreak/><Run Language="ja-jp"/></TextBlock>
         <!--入力フォーム-->
         <TextBlock Grid.Column="0" Grid.Row="1" Name="companyNameLabel">CompanyName</TextBlock>
         <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Name="txtCompanyName"/>
         <TextBlock Grid.Column="0" Grid.Row="2" Name="presidentLabel">President</TextBlock>
         <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Name="txtPresident"/>
         <TextBlock Grid.Column="0" Grid.Row="3" Name="urlLabel">Url</TextBlock>
-        <TextBox Grid.Column="1" Grid.Row="3" Width="100" Name="txtUrl"/>
+        <TextBox Grid.Row="3" Name="txtUrl" Grid.ColumnSpan="3" Margin="82,0,11,355" Grid.RowSpan="2"/>
 
         <Button Grid.Column="0" Grid.Row="4" Width="50" Height="80" Margin="16,50,16,225">Create</Button>
         <Button Grid.Column="1" Grid.Row="4" Width="50" Height="80" Margin="25,50,25,225">Read</Button>
         <Button Grid.Column="0" Grid.Row="4" Width="50" Height="80" Margin="16,157,16,118">Update</Button>
         <Button Grid.Column="1" Grid.Row="4" Width="50" Height="80" Margin="25,157,25,118">Deleat</Button>
- 
 
-        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="5" Width="610" Height="355" AutoGenerateColumns="True">
+
+        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="5" Width="610" Height="325" AutoGenerateColumns="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Companyname" Binding="{Binding }" />
                 <DataGridTextColumn Header="President" Binding="{Binding }" />
