@@ -14,12 +14,12 @@ namespace DataBasePortfolio.Model
     class Company
     {
         [Key]
-        public int CompanyId { get; set; }//DB用企業ID
+        public int CompanyId { get; set; }//DB用企業ID,Keyをつけた時点で自動生成
         [Required]
         public string CompanyName { get; set; }//会社名    
         [Required]
         public string President  { get; set; }//代表取締役
-        [Required]
-        public string URL { get; set; }//会社概要のURL
+        //[Required]
+        //public string URL { get; set; }//会社概要のURL
     }
 }
