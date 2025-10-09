@@ -19,15 +19,25 @@ namespace DataBasePortfolio.Model
 
         }
         //Create(Add)
-  
+
         public void AddCompany(Company company)
-    {
-        _context.Companys.Add(company);
-        _context.SaveChanges();
-    } }
+        {
+            _context.Companys.Add(company);
+            _context.SaveChanges();
+        }
         //Read
+        
+        //Update
+        
+        //Delete
+
+        public void RemoveCompany(Company company)
+        {
+            _context.Companys.Remove(company);
+            _context.SaveChanges();
 
 
-
+        }
+    }
 }
 
