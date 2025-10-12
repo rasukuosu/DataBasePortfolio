@@ -26,9 +26,15 @@ namespace DataBasePortfolio.Model
             _context.SaveChanges();
         }
         //Read
-        
+        public List<Company> GetAllCompanys()
+        {
+            var query = from c in _context.Companys //cはCompanyの範囲変数
+                        select c;   
+            return query.ToList();
+        }
+
         //Update
-        
+
         //Delete
 
         public void RemoveCompany(Company company)
