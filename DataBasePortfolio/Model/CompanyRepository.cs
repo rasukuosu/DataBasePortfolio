@@ -30,7 +30,7 @@ namespace DataBasePortfolio.Model
         {
             var query = from c in _context.Companys //cはCompanyの範囲変数
                         select c;   
-            return query.ToList();
+            return query.ToList(); //ToListでデータをList型に変換して返す
         }
 
         //Update
