@@ -23,5 +23,7 @@ namespace DataBasePortfolio.ViewModel
 
 
         //ここからWPF用のListViewの実装
+        //Viewに変更通知もできるようにrepositoryのqueryのToList（）したデータを
+        //ObservableCollectionにぶち込む
     }
 }
