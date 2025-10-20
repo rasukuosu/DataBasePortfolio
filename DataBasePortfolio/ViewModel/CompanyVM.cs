@@ -11,5 +11,17 @@ namespace DataBasePortfolio.ViewModel
 {
     internal class CompanyVM: ObservableObject
     {
+        private CompanyRepository _companyRepository;
+        CompanyVM(CompanyRepository repository)
+        {
+             _companyRepository = repository;//Modelのリポジトリをインスタンス化
+        }
+       
+        //Viewに表示するためのプロパティ
+        [ObservableProperty]
+        private Company _company;
+
+
+        //ここからWPF用のListViewの実装
     }
 }
