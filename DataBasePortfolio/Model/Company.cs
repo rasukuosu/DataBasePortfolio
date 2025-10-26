@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace DataBasePortfolio.Model
 {
     [Table("Companys")]
-    class Company
+    public class Company
     {
         [Key]
         public int CompanyId { get; set; }//DB用企業ID,Keyをつけた時点で自動生成

@@ -10,21 +10,23 @@ using DataBasePortfolio.Model;
 
 namespace DataBasePortfolio.ViewModel
 {
-    internal partial class CompanyVM: ObservableObject
+   public partial class CompanyVM: ObservableObject
     {
        
         private CompanyRepository _companyRepository;//Modelのリポジトリを保持するフィールド
-        public ObservableCollection<Company> _companiesList;//Viewに表示するためのObservableCollection型のプロパティ
-        CompanyVM(CompanyRepository repository)
+        public ObservableCollection<Company> CompaniesList { get; }//Viewに表示するためのObservableCollection型のプロパティ
+        
+
+        public CompanyVM(CompanyRepository repository)
         {
              _companyRepository =  repository;//Modelのリポジトリをインスタンス化
             var companyData = repository.GetAllCompanys();//一旦リポジトリからList型でデータを取得
-            _companiesList = new ObservableCollection<Company>(companyData);//ObservableCollectionにGetAllCompanyのリストを変換して格納
+            CompaniesList = new ObservableCollection<Company>(companyData);//ObservableCollectionにGetAllCompanyのリストを変換して格納
         }
        
         //Viewに表示するためのプロパティ
         [ObservableProperty]
-        private Company _company;
+        private Company _Company;
 
         
 

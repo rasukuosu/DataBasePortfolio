@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:DataBasePortfolio.ViewModel"
         xmlns:local="clr-namespace:DataBasePortfolio"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <!--ここにDataContextのVMを記入-->
+    <Window.DataContext>
+        <vm:CompanyVM/>
+    </Window.DataContext>
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
@@ -37,12 +42,12 @@
         <Button Grid.Column="1" Grid.Row="4" Width="50" Height="80" Margin="25,157,25,118">Deleat</Button>
 
 
-        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="5" Width="610" Height="325" AutoGenerateColumns="True">
+        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="5" Width="610" Height="325" AutoGenerateColumns="True" ItemsSource="{Binding CompanyList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Companyname" Binding="{Binding }" />
-                <DataGridTextColumn Header="President" Binding="{Binding }" />
-                <DataGridTextColumn Header="URL" Binding="{Binding }" />
-                <DataGridTextColumn Header="id" Binding="{Binding }" />
+                <DataGridTextColumn Header="CompanyID" Binding="{Binding CompanyId}" />
+                <DataGridTextColumn Header="Companyname" Binding="{Binding CompanyNam}" />
+                <DataGridTextColumn Header="President" Binding="{Binding President}" />
+                
             </DataGrid.Columns>
         </DataGrid>
 

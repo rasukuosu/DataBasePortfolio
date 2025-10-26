@@ -9,7 +9,7 @@ using System.Windows.Media.Animation;
 namespace DataBasePortfolio.Model
 {
     //https://learn.microsoft.com/ja-jp/dotnet/api/microsoft.entityframeworkcore.dbcontext?view=efcore-9.0
-    internal class CompanyRepository
+    public class CompanyRepository
     {
         private readonly CompanyContext _context;//contextの状態を保持
         //コンストラクタでインスタンス作成
