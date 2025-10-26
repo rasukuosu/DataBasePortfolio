@@ -25,7 +25,7 @@ namespace DataBasePortfolio.ViewModel
         }
         public CompanyVM() : this(new CompanyRepository())
         {
-            //Viewがインスタンスを作るためのコンストラクタ
+            //Viewがインスタンスを作るためのコンストラクタ＝コンストラクタ・チェイニング 
             //引数なしコンストラクタでCompanyRepositoryのインスタンスを生成して
             //引数付きコンストラクタに渡し
         }
