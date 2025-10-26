@@ -15,15 +15,22 @@ namespace DataBasePortfolio.ViewModel
        
         private CompanyRepository _companyRepository;//Modelのリポジトリを保持するフィールド
         public ObservableCollection<Company> CompaniesList { get; }//Viewに表示するためのObservableCollection型のプロパティ
-        
+
 
         public CompanyVM(CompanyRepository repository)
         {
-             _companyRepository =  repository;//Modelのリポジトリをインスタンス化
+            _companyRepository = repository;//Modelのリポジトリをインスタンス化
             var companyData = repository.GetAllCompanys();//一旦リポジトリからList型でデータを取得
             CompaniesList = new ObservableCollection<Company>(companyData);//ObservableCollectionにGetAllCompanyのリストを変換して格納
         }
-       
+        public CompanyVM() : this(new CompanyRepository())
+        {
+            //Viewがインスタンスを作るためのコンストラクタ
+            //引数なしコンストラクタでCompanyRepositoryのインスタンスを生成して
+            //引数付きコンストラクタに渡し
+        }
+
+
         //Viewに表示するためのプロパティ
         [ObservableProperty]
         private Company _Company;
