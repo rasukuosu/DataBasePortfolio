@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,8 @@ namespace DataBasePortfolio.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) //実際に使うDBの構築
         {
-           optionsBuilder.UseSqlite("Data Source=company.db");
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "company.db");
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
            
         }
     }
