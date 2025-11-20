@@ -10,9 +10,9 @@ using DataBasePortfolio.Model;
 
 namespace DataBasePortfolio.ViewModel
 {
-   public partial class CompanyVM: ObservableObject
+    public partial class CompanyVM : ObservableObject
     {
-       
+
         private CompanyRepository _companyRepository;//Modelのリポジトリを保持するフィールド
         public ObservableCollection<Company> CompaniesList { get; }//Viewに表示するためのObservableCollection型のプロパティ
 
@@ -35,7 +35,7 @@ namespace DataBasePortfolio.ViewModel
         [ObservableProperty]
         private Company _Company;
 
-        
+     
 
 
         //ここからWPF用のListViewの実装
