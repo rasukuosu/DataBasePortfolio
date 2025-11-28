@@ -45,13 +45,21 @@ namespace DataBasePortfolio.ViewModel
                  Company = new Company();//追加後、入力用のプロパティを初期化
 
         }
+       
         [RelayCommand]
-        public void Read(){
+        public void Delete()
+        {
+            _companyRepository.RemoveCompany(_Company);//Modelのリポジトリを使ってDBから削除
+            CompaniesList.Remove(_Company);//Viewに表示するためのObservableCollectionからも削除
+            Company = new Company();//削除後、入力用のプロパティを初期化
+        }
+        [RelayCommand]
+        public void Read()
+        {
 
             _companyRepository = new CompanyRepository();
             var companyData = _companyRepository.GetAllCompanys();
-            CompaniesList = new ObservableCollection<Company>(companyData);
-
+            
         }
     }
 }
