@@ -59,7 +59,13 @@ namespace DataBasePortfolio.ViewModel
 
             _companyRepository = new CompanyRepository();
             var companyData = _companyRepository.GetAllCompanys();
-            
+        }
+        [RelayCommand]
+        public void Update()
+        {
+            _companyRepository.Update(_Company);//Modelのリポジトリを使ってDBを更新
+            Company = new Company();//更新後、入力用のプロパティを初期化
+
         }
     }
 }

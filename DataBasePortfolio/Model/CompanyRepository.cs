@@ -34,7 +34,12 @@ namespace DataBasePortfolio.Model
         }
 
         //Update
+        public void Update(Company company)
+        {
+            _context.Companys.Update(company);
+            _context.SaveChanges();
 
+        }
         //Delete
 
         public void RemoveCompany(Company company)
@@ -44,6 +49,8 @@ namespace DataBasePortfolio.Model
 
 
         }
+       
+     
     }
 }
 
