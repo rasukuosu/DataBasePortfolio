@@ -20,15 +20,16 @@ namespace DataBasePortfolio.Model
         //DBの初期データ投入列がnullの時のみ、seedingを実行
         .UseSeeding((context, _) =>
             {
-            var Companys = context.Set<Company>().FirstOrDefault(c => c.CompanyName == "サンプルアニメ制作会社");
-            if (Companys == null) {
-                context.Set<Company>().Add(new Company { CompanyName = "サンプルアニメ制作会社", President = "サンプル描美" });
-                context.SaveChanges();
-            }
-        })
-        .UseAsyncSeeding(async(context, _, cancellationToken) =>
+                var Companys = context.Set<Company>().FirstOrDefault(c => c.CompanyName == "サンプルアニメ制作会社");
+                if (Companys == null)
+                {
+                    context.Set<Company>().Add(new Company { CompanyName = "サンプルアニメ制作会社", President = "サンプル描美" });
+                    context.SaveChanges();
+                }
+            })
+        .UseAsyncSeeding(async (context, _, cancellationToken) =>
             {
-            var Companys = await context.Set<Company>().FirstOrDefaultAsync(c => c.CompanyName == "サンプルアニメ制作会社", cancellationToken);
+                var Companys = await context.Set<Company>().FirstOrDefaultAsync(c => c.CompanyName == "サンプルアニメ制作会社", cancellationToken);
                 if (Companys == null)
                 {
                     context.Set<Company>().AddAsync(new Company { CompanyName = "サンプルアニメ制作会社", President = "サンプル描美" });
@@ -37,6 +38,12 @@ namespace DataBasePortfolio.Model
                 }
 
             });
-        }
-} 
+        //インデックスを使わないでテーブルに制約を書ける場合
+        //protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        //{
+        //    modelBuilder.Entity<Company>().ToTable("Companys");
+
+        //}
+    }
+}
 

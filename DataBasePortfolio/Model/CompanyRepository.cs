@@ -1,4 +1,6 @@
-﻿using SQLitePCL;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +48,7 @@ namespace DataBasePortfolio.Model
         {
             _context.Companys.Remove(company);
             _context.SaveChanges();
-
+            
 
         }
        

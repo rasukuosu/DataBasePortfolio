@@ -19,6 +19,7 @@ namespace DataBasePortfolio
         public MainWindow()
         {
             InitializeComponent();
+           
         }
     }
 }
