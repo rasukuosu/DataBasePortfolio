@@ -20,19 +20,19 @@ namespace DataBasePortfolio.Model
         //DBの初期データ投入列がnullの時のみ、seedingを実行
         .UseSeeding((context, _) =>
             {
-                var Companys = context.Set<Company>().FirstOrDefault(c => c.CompanyName == "サンプルアニメ制作会社");
+                var Companys = context.Set<Company>().FirstOrDefault(c => c.CompanyName == "サンプルアニメスタジオ");
                 if (Companys == null)
                 {
-                    context.Set<Company>().Add(new Company { CompanyName = "サンプルアニメ制作会社", President = "サンプル描美" });
+                    context.Set<Company>().Add(new Company { CompanyName = "サンプルアニメスタジオ", President = "サンプル描美" });
                     context.SaveChanges();
                 }
             })
         .UseAsyncSeeding(async (context, _, cancellationToken) =>
             {
-                var Companys = await context.Set<Company>().FirstOrDefaultAsync(c => c.CompanyName == "サンプルアニメ制作会社", cancellationToken);
+                var Companys = await context.Set<Company>().FirstOrDefaultAsync(c => c.CompanyName == "サンプルアニメスタジオ", cancellationToken);
                 if (Companys == null)
                 {
-                    context.Set<Company>().AddAsync(new Company { CompanyName = "サンプルアニメ制作会社", President = "サンプル描美" });
+                    context.Set<Company>().AddAsync(new Company { CompanyName = "サンプルアニメスタジオ", President = "サンプル描美" });
                     await context.SaveChangesAsync(cancellationToken);
 
                 }

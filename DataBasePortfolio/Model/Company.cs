@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -13,7 +14,7 @@ namespace DataBasePortfolio.Model
 {
     [Table("Companys")]
     [Index(nameof(CompanyName), IsUnique =true)]//会社名にユニーク制約をつける
-    public class Company
+    public class Company : ObservableObject//ObservableObjectにしないと編集してDBから値をReloadしたとき、その変化をDataGridが検知できない
     {
         [Key]
         public int CompanyId { get; set; }//DB用企業ID,Keyをつけた時点で自動生成

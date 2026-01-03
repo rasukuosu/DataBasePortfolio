@@ -51,8 +51,14 @@ namespace DataBasePortfolio.Model
             
 
         }
-       
-     
+
+        //エラーが起こったときEF Coreが持っているメモリ上のキャッシュを捨てて、DBから最新の値を再取得する
+        public void ReloadEntity(Company company)
+        {
+            EntityEntry<Company> entry = _context.Entry(company);
+            entry.Reload();
+        }
+
     }
 }
 
