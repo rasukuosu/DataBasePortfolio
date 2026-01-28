@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace DataBasePortfolio.ViewModel
 {
-    public partial class CompanyVM : ObservableObject
+    public partial class CompanyVM : ObservableValidator
     {
 
         private CompanyRepository _companyRepository;//Modelのリポジトリを保持するフィールド
