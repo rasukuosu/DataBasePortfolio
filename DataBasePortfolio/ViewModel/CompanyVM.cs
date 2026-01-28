@@ -41,12 +41,12 @@ namespace DataBasePortfolio.ViewModel
         [RelayCommand]
         public void Create()//  xaml側でbindしたプロパティ名 はメソッド名 + "Command"
         {
-            if (_Company.CompanyName == null || _Company.President == null  )
+            if (_Company.CompanyName == null || _Company.President == null)
             {
                 MessageBox.Show("Errorが発生しました空欄がないかを確認してください");
                 return;
             }
-            else if (_Company.CompanyName.Contains("株式会社") )
+            else if (_Company.CompanyName.Contains("株式会社"))
             {
                 MessageBox.Show("Errorが発生しました株式会社を含んでいないかを確認してください");
                 return;
@@ -58,7 +58,7 @@ namespace DataBasePortfolio.ViewModel
                 Company = new Company();//追加後、入力用のプロパティを初期化
             }
         }
-       
+
         [RelayCommand]
         public void Delete()
         {
@@ -76,7 +76,7 @@ namespace DataBasePortfolio.ViewModel
         [RelayCommand]
         public void Update()
         {
-           
+
             if (_Company.CompanyName == null || _Company.President == null)
             {
                 MessageBox.Show("Errorが発生しました空欄がないかを確認してください");
@@ -89,10 +89,19 @@ namespace DataBasePortfolio.ViewModel
                 _companyRepository.ReloadEntity(_Company);
                 return;
             }
-            else { 
-            _companyRepository.Update(_Company);//Modelのリポジトリを使ってDBを更新
+            else
+            {
+                _companyRepository.Update(_Company);//Modelのリポジトリを使ってDBを更新
                 //Company = new Company();//更新後、入力用のプロパティを初期化
             }
-    }
+
+
+        }
+        [RelayCommand]
+        public void DeleteWindow()//delete確認ウィンドウを開くコマンド
+        {
+            DeleteValidationWindow deleteValidationWindow = new DeleteValidationWindow();
+            deleteValidationWindow.ShowDialog();
+        }
     }
 }
