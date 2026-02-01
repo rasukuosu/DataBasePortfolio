@@ -22,6 +22,27 @@ namespace DataBasePortfolio
         public DeleteValidationWindow()
         {
             InitializeComponent();
+
+        }
+
+        private string targetCode = "DELETEROW";
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            string code = this.targetTextBox.Text;
+            if (code == targetCode)
+            {
+                this.DialogResult = true;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("入力されたコードが正しくありません。再度確認してください。", "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+           
         }
     }
 }
