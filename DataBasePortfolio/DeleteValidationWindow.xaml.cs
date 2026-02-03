@@ -25,10 +25,10 @@ namespace DataBasePortfolio
 
         }
 
-        private string targetCode = "DELETEROW";
+        private string targetCode = "DELETEROW";//正解の確認コード
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            string code = this.targetTextBox.Text;
+            string code = this.targetTextBox.Text;//thisはこのクラス自身を指す
             if (code == targetCode)
             {
                 this.DialogResult = true;

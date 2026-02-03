@@ -102,6 +102,19 @@ namespace DataBasePortfolio.ViewModel
         {
             DeleteValidationWindow deleteValidationWindow = new DeleteValidationWindow();
             deleteValidationWindow.ShowDialog();
+            if (deleteValidationWindow.DialogResult == true)
+            {
+                     
+        
+            _companyRepository.RemoveCompany(_Company);//Modelのリポジトリを使ってDBから削除
+            CompaniesList.Remove(_Company);//Viewに表示するためのObservableCollectionからも削除
+
+            Company = new Company();//削除後、入力用のプロパティを初期化
+
+             }
+            else {                 
+                return; 
+            }
         }
     }
 }
