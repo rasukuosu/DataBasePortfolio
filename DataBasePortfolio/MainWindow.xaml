@@ -6,7 +6,8 @@
         xmlns:vm="clr-namespace:DataBasePortfolio.ViewModel"
         xmlns:local="clr-namespace:DataBasePortfolio"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1008" Width="1792"
+        HorizontalAlignment="Stretch">
     <Window.DataContext>
         <vm:CompanyVM/>
     </Window.DataContext>
@@ -22,7 +23,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+        </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="10,5,10,0" HorizontalAlignment="Center">
             <Run Language="ja-jp" Text="CompanyDB"/>
             <LineBreak/>
@@ -34,11 +35,11 @@
         <TextBox Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Name="txtPresident" Text="{Binding Company.President, Mode=TwoWay}" />
         <TextBlock Grid.Column="0" Grid.Row="2" Name="presidentLabel">President</TextBlock>
         <!--<TextBox Grid.Row="3" Name="txtUrl" Grid.ColumnSpan="3" Margin="82,0,11,355" Grid.RowSpan="2"/>-->
-        <Button Grid.Column="0" Grid.Row="4" Width="50" Height="80" Margin="16,50,16,225" Command="{Binding CreateCommand}">Create</Button>
-        <Button Grid.Column="1" Grid.Row="4" Width="50" Height="80" Margin="25,50,25,225" Command="{Binding ReadCommand}">Read</Button>
-        <Button Grid.Column="0" Grid.Row="4" Width="50" Height="80" Margin="16,157,16,118" Command="{Binding UpdateCommand}">Update</Button>
-        <Button Grid.Column="1" Grid.Row="4" Width="50" Height="80" Margin="25,152,25,123" Command="{Binding DeleteWindowCommand}" RenderTransformOrigin="0.599,0.671">Delete</Button>
-        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="5" Width="610" Height="325" AutoGenerateColumns="False" ItemsSource="{Binding CompaniesList}" SelectedItem="{Binding Company}">
+        <Button Grid.Column="0" Grid.Row="4" Width="200" Height="200" Margin="16,108,16,642" Command="{Binding CreateCommand}">Create</Button>
+        <Button Grid.Column="1" Grid.Row="4" Width="200" Height="200" Margin="25,108,25,642" Command="{Binding ReadCommand}">Read</Button>
+        <Button Grid.Column="0" Grid.Row="4" Width="200" Height="200" Margin="16,157,16,118" Command="{Binding UpdateCommand}">Update</Button>
+        <Button Grid.Column="1" Grid.Row="4" Width="200" Height="200" Margin="25,152,25,123" Command="{Binding DeleteWindowCommand}" RenderTransformOrigin="0.599,0.671">Delete</Button>
+        <DataGrid Name="dataGrid" Grid.Column="2" Grid.Row="4" Width="1000" AutoGenerateColumns="False" ItemsSource="{Binding CompaniesList}" SelectedItem="{Binding Company}" Margin="0,34,0,75">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Header="CompanyID" Binding="{Binding CompanyId}" />

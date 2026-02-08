@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:DataBasePortfolio.ViewModel"
         xmlns:local="clr-namespace:DataBasePortfolio"
-        mc:Ignorable="d"
-        Title="DeleteValidationWindow" Height="200" Width="500">
+        FocusManager.FocusedElement="{Binding ElementName=targetTextBox}"
+        Title="DeleteValidationWindow" Height="288" Width="512" ResizeMode="NoResize">
     <Window.DataContext>
         <vm:DeleteValidationWindowVM/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="500"/>
-        </Grid.ColumnDefinitions>
-        <TextBox Margin="0,123,0,34" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" x:Name="targetTextBox" Text="{Binding InputCode}"/>
-        <Button Content="Cancel" HorizontalAlignment="Left" Height="22" Margin="26,155,0,0" VerticalAlignment="Top" Width="60" Click="Cancel_Click"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Height="22" Margin="427,155,0,0" VerticalAlignment="Top" Width="63" Click="Delete_Click"/>
-        <TextBlock HorizontalAlignment="Left" Height="94" Margin="20,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" Grid.ColumnSpan="2" Text="レコードを削除する前に確認のため”DELETEROW”を入力し、Deleteを押して下さい"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Left" Height="40" Margin="20,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="411" Text="レコードを削除する前に確認のため枠内に”DELETEROW”を入力し、Deleteを押して下さい"/>
+        <TextBox Grid.Row="1" Margin="0,20,0,20" Height="60" Width="400" x:Name="targetTextBox" Text="{Binding InputCode}">
+        </TextBox>
+        <Button Grid.Row="2" Content="Cancel" HorizontalAlignment="Left" Height="22" Margin="81,15,0,0" VerticalAlignment="Top" Width="60" Click="Cancel_Click"/>
+        <Button Grid.Row="2" Content="Delete" HorizontalAlignment="Left" Height="22" Margin="300,15,0,0" VerticalAlignment="Top" Width="63" Click="Delete_Click"/>
+
     </Grid>
 </Window>
