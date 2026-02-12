@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBasePortfolio.Migrations
 {
     [DbContext(typeof(CompanyContext))]
-    [Migration("20251110150557_InitialCreate")]
+    [Migration("20260212141701_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -34,6 +34,9 @@ namespace DataBasePortfolio.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("CompanyId");
+
+                    b.HasIndex("CompanyName")
+                        .IsUnique();
 
                     b.ToTable("Companys");
                 });

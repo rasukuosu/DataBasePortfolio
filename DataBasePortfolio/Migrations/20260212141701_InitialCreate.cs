@@ -23,6 +23,12 @@ namespace DataBasePortfolio.Migrations
                 {
                     table.PrimaryKey("PK_Companys", x => x.CompanyId);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Companys_CompanyName",
+                table: "Companys",
+                column: "CompanyName",
+                unique: true);
         }
 
         /// <inheritdoc />
