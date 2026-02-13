@@ -18,7 +18,7 @@ namespace DataBasePortfolio.Model
         public CompanyRepository()
         {
             _context = new CompanyContext();
-
+            _context.Database.Migrate();//DBのマイグレーションを実行
         }
         //Create(Add)
 
