@@ -32,4 +32,5 @@
 ###Delete
   DataGrid内の変更したい行を選択し
 ## こだわり
-## PDFへのリンク
+## Acknowledgments
+- Badges: [markdown-badges](https://github.com/Ileriayo/markdown-badges) by Ileriayo
