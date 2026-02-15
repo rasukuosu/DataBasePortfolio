@@ -17,7 +17,7 @@ namespace DataBasePortfolio.ViewModel
     {
 
         private CompanyRepository _companyRepository;//Modelのリポジトリを保持するフィールド
-        public ObservableCollection<Company> CompaniesList { get; set; }//Viewに表示するためのObservableCollection型のプロパティ
+        public ObservableCollection<Company> CompaniesList { get; set; }//Viewに表示するためのObservableCollection型のプロパティ、追加と削除のコレクション全体が更新されたときのみしか通知を出さないため、CompanyクラスのプロパティをObservablProperty化して項目ごとの通知を出させる必要がある
 
 
         public CompanyVM(CompanyRepository repository)
@@ -93,6 +93,7 @@ namespace DataBasePortfolio.ViewModel
             {
                 _companyRepository.Update(_Company);//Modelのリポジトリを使ってDBを更新
                 //Company = new Company();//更新後、入力用のプロパティを初期化
+                var companyData = _companyRepository.GetAllCompanys();
             }
 
 

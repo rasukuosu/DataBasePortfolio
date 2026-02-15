@@ -18,11 +18,22 @@ namespace DataBasePortfolio.Model
     {
         [Key]
         public int CompanyId { get; set; }//DB用企業ID,Keyをつけた時点で自動生成
-        [Required]//Null不可
-        
-        public string CompanyName { get; set; }//会社名    
+        private string _companyName; // 値を保存する場所
         [Required]
-        public string President  { get; set; }//代表取締役
+        public string CompanyName
+        {
+            get => _companyName;
+            set => SetProperty(ref _companyName, value); // 値をセットしつつ、無理やりObserbableProperty化してObservableCollectionに項目ごとの通知を出させてDataGridを更新させる
+        }
+
+        // --- President の書き換え ---
+        private string _president; // 値を保存する場所
+        [Required]
+        public string President
+        {
+            get => _president;
+            set => SetProperty(ref _president, value); // 値をセットしつつ、無理やりObserbableProperty化してObservableCollectionに項目ごとの通知を出させてDataGridを更新させる
+        }
         //[Required]
         //public string URL { get; set; }//会社概要のURL
     }
