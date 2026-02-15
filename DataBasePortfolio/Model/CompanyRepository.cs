@@ -13,51 +13,61 @@ namespace DataBasePortfolio.Model
     //https://learn.microsoft.com/ja-jp/dotnet/api/microsoft.entityframeworkcore.dbcontext?view=efcore-9.0
     public class CompanyRepository
     {
-        private readonly CompanyContext _context;//contextの状態を保持
         //コンストラクタでインスタンス作成
         public CompanyRepository()
         {
-            _context = new CompanyContext();
-            _context.Database.Migrate();//DBのマイグレーションを実行
+            using (var context = new CompanyContext())
+            {
+                context.Database.Migrate();//DBのマイグレーションを実行
+            }
         }
         //Create(Add)
 
         public void AddCompany(Company company)
         {
-            _context.Companys.Add(company);
-            _context.SaveChanges();
+            using (var context = new CompanyContext())
+            {
+                context.Companys.Add(company);
+                context.SaveChanges();
+            }
         }
         //Read
         public List<Company> GetAllCompanys()
-        {
-            var query = from c in _context.Companys //cはCompanyの範囲変数
-                        select c;   
-            return query.ToList(); //ToListでデータをList型に変換して返す
+        {using (var context = new CompanyContext())
+            {
+                var query = from c in context.Companys//cはCompanyの範囲変数
+                            select c;
+                return query.ToList(); //ToListでデータをList型に変換して返す
+            }
         }
 
         //Update
         public void Update(Company company)
         {
-            _context.Companys.Update(company);
-            _context.SaveChanges();
-
+            using (var context = new CompanyContext())
+            {
+                context.Companys.Update(company);
+                context.SaveChanges();
+            }
         }
         //Delete
 
         public void RemoveCompany(Company company)
         {
-            _context.Companys.Remove(company);
-            _context.SaveChanges();
-            
+            using (var context = new CompanyContext())
+            {
+                context.Companys.Remove(company);
+                context.SaveChanges();
+            }
 
         }
 
-        //エラーが起こったときEF Coreが持っているメモリ上のキャッシュを捨てて、DBから最新の値を再取得する
-        public void ReloadEntity(Company company)
-        {
-            EntityEntry<Company> entry = _context.Entry(company);
-            entry.Reload();
-        }
+        ////エラーが起こったときEF Coreが持っているメモリ上のキャッシュを捨てて、DBから最新の値を再取得する→usingでcontextを都度破棄するため不要
+        //public void ReloadEntity(Company company)
+        //{
+        //    EntityEntry<Company> entry = context.Entry(company);
+        //    entry.Reload();
+        //}
 
     }
 }

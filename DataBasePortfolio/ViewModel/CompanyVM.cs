@@ -80,13 +80,13 @@ namespace DataBasePortfolio.ViewModel
             if (_Company.CompanyName == null || _Company.President == null)
             {
                 MessageBox.Show("Errorが発生しました空欄がないかを確認してください");
-                _companyRepository.ReloadEntity(_Company);
+                //_companyRepository.ReloadEntity(_Company);usingでcontextを都度破棄するため不要
                 return;
             }
             else if (_Company.CompanyName.Contains("株式会社"))
             {
                 MessageBox.Show("Errorが発生しました株式会社を含んでいないかを確認してください");
-                _companyRepository.ReloadEntity(_Company);
+                //_companyRepository.ReloadEntity(_Company);usingでcontextを都度破棄するため不要
                 return;
             }
             else
