@@ -20,7 +20,7 @@
         <TextBox Grid.Row="1" Margin="0,20,0,20" Height="60" Width="400" x:Name="targetTextBox" Text="{Binding InputCode}">
         </TextBox>
         <Button Grid.Row="2" Content="Cancel" HorizontalAlignment="Left" Height="22" Margin="81,15,0,0" VerticalAlignment="Top" Width="60" Click="Cancel_Click"/>
-        <Button Grid.Row="2" Content="Delete" HorizontalAlignment="Left" Height="22" Margin="300,15,0,0" VerticalAlignment="Top" Width="63" Click="Delete_Click"/>
+        <Button Grid.Row="2" Content="確定" HorizontalAlignment="Left" Height="22" Margin="300,15,0,0" VerticalAlignment="Top" Width="63" Click="Delete_Click"/>
 
     </Grid>
 </Window>
