@@ -25,12 +25,17 @@
 ## 基本機能
 ### Create
   CompanyとPresidentのTextBoxに社名と社長名を入れ、Createボタンを押すことで登録。
+  ![Image](https://github.com/user-attachments/assets/82df6945-9fb6-4f0d-ae56-9172e6622cb4)
+  テキストボックスが空欄の場合
+  ![Image](https://github.com/user-attachments/assets/82df6945-9fb6-4f0d-ae56-9172e6622cb4)
 ### Read  
   Readボタンを押して最新のDB内容を取得し、DataGrid内に表示。
 ### Update  
   DataGrid内の変更したい行を選択し、CompanyとPresidentのTextBoxの内容を変更し、Updateボタンで更新。
+  ![Image](https://github.com/user-attachments/assets/73e77426-375f-4ba0-ae18-405b5246b37d)
 ### Delete
   DataGrid内の変更したい行を選択し、Deleteボタンを押下、確認ウィンドウで指定文字列をうち、確定ボタンを押下。これによりDataGridの行が削除される。
+  ![Image](https://github.com/user-attachments/assets/a540e73f-4036-4b8c-a556-3465a95a3f46)
 ## こだわり
 #ブログ
 https://blog.hatena.ne.jp/neatTanaka/neattanaka.hatenablog.com/
