@@ -23,14 +23,14 @@
 ![XAML](https://img.shields.io/badge/XAML-0C619E?style=for-the-badge&logo=visual-studio&logoColor=white)
 # ソフト紹介
 ## 基本機能
-###Create
-　CompanyとPresidentのTextBoxに社名と社長名を入れ、Createボタンを押すことで登録。
-###Read  
+### Create
+  CompanyとPresidentのTextBoxに社名と社長名を入れ、Createボタンを押すことで登録。
+### Read  
   Readボタンを押して最新のDB内容を取得し、DataGrid内に表示。
-###Update  
+### Update  
   DataGrid内の変更したい行を選択し、CompanyとPresidentのTextBoxの内容を変更し、Updateボタンで更新。
-###Delete
-  DataGrid内の変更したい行を選択し
+### Delete
+  DataGrid内の変更したい行を選択し、Deleteボタンを押下、確認ウィンドウで指定文字列をうち、確定ボタンを押下。これによりDataGridの行が削除される。
 ## こだわり
-## Acknowledgments
-- Badges: [markdown-badges](https://github.com/Ileriayo/markdown-badges) by Ileriayo
+#ブログ
+https://blog.hatena.ne.jp/neatTanaka/neattanaka.hatenablog.com/
