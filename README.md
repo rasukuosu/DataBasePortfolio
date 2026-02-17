@@ -1,13 +1,15 @@
 # DataBasePortfolio（アニメ制作会社、企業名・社長名管理ソフト）
 # 概要
-　各アニメーション制作会社の情報を管理する、シンプルなDataBaseソフト。
+　アニメーション制作会社の情報をシンプルに管理する、SQLiteベースのデスクトップアプリケーションです。
+データ操作（CRUD）に加え、MVVMパターンに基づいた設計を目指し開発しました。
 # 開発背景
 ## 製作期間
 　2025/8~2026/2（６か月程度）  
-　manabyでの訓練とは別に個人学習の一環として制作しました。
+　manabyでの訓練とは別に個人学習の一環として制作しました。限られた時間の中で「継続して形にする」ことを目標としました。
 ## 製作中の目標とできるようになったこと
 ### 目標
-　manabyでの訓練を行いながら、最低限動作を確認できるものを完成させること。
+1.manabyでの訓練を行いながら、体調を安定させつつ最低限動作を確認できるものを完成させること。  
+2.Entity Framework Coreを用いたデータベース作成と、C#の復習
 ### できるようになったこと
 1. MVVMパターンの学習と実践。
 2. EFCoreによるSeedingやMigrate()などの制御。
@@ -30,30 +32,28 @@ VisualStudio2026 Community 18.2.2
 # ソフト紹介
 ## 基本機能
 ### Create
-  CompanyとPresidentのTextBoxに社名と社長名を入れ、Createボタンを押すことで登録。
-  ![Image](https://github.com/user-attachments/assets/82df6945-9fb6-4f0d-ae56-9172e6622cb4)
-  テキストボックスが空欄の場合
+  社名と代表者名を入力しDBへ登録。バリデーション機能により、空欄が含まれる場合の例外を未然に防止。  
+  ![Image](https://github.com/user-attachments/assets/02f0e774-6b0c-42af-a30c-49630d2129b5)
+  テキストボックスが空欄の場合    
   ![Image](https://github.com/user-attachments/assets/82df6945-9fb6-4f0d-ae56-9172e6622cb4)
 ### Read  
-  Readボタンを押して最新のDB内容を取得し、DataGrid内に表示。
+  Readボタンを押して最新のDB内容を取得してDataGrid内に表示。  
 ### Update  
-  DataGrid内の変更したい行を選択し、CompanyとPresidentのTextBoxの内容を変更し、Updateボタンで更新。
+  DataGrid内の変更したい行を選択し、CompanyとPresidentのTextBoxの内容を変更。Updateボタンで更新。  
   ![Image](https://github.com/user-attachments/assets/73e77426-375f-4ba0-ae18-405b5246b37d)
 ### Delete
-  DataGrid内の変更したい行を選択し、Deleteボタンを押下、確認ウィンドウで指定文字列をうち、確定ボタンを押下。これによりDataGridの行が削除される。  
-  
+  DataGrid内の変更したい行を選択し、Deleteボタンを押下、確認ウィンドウで指定文字列をうち、確定ボタンを押下。これによりDataGridの行が削除される。  誤削除を防止するため、確認ウィンドウに特定の文字列を入力させるバリデーションを実装。
   ![Image](https://github.com/user-attachments/assets/a540e73f-4036-4b8c-a556-3465a95a3f46)
 ## こだわり
 ### 機能面
 #### 1. Delete時の確認処理
-Deleteをする際、確認のためのValidation機能をつけたこと。誤って行を消してしまう事故をふせぐ。
+単なるボタンクリックではなく、特定の文字列入力を求めることで、重要データ誤削除リスクを抑えました。  
 #### 2. DataGridの即時表示更新
-ObservableCollectionはコレクション全体が削除や追加によって変化しないと変更通知を出さないが、Model側のTableをObservableObjectにしてプロパティに変更通知機能をもたせることで、UpdateでもDataGridの表示内容の更新を実現した。
+ObservableCollection の「要素の増減のみ通知する」という制限を、Model側（Table）に ObservableObject を継承させ SetProperty を実装することで解消。Update時のDataGrid表示への即時反映を実装。  
 #### 3. CompanyVMのコンストラクタチェイニング
-Window.DataContextは引数のないコンストラクタしか呼ぶことができないが、コンストラクタチェイニングを行うことで引数をもつ初期化のされたCompanyVMのインスタンスを作成することができる。
+XAML側（View）の制約により引数付きコンストラクタが直接呼べない問題を、コンストラクタチェイニングを用いることで解決。初期化したコンストラクタとDataBindingを両立させました。  
 ### 制作面
-昨年8月から2026年の2月まで、6ヶ月かかったソフトではあるが、この6ヶ月の間にこの開発とは別に就労移行支援での訓練を行なっていた。
-訓練ではビジネスマナーやvbaエキスパートベーシックの取得、職場実習のための書類作成や面接を行った。
-こういった状況のなかで体調を崩さずに少しずつカタチになるものを作ることにこだわった。
+この６ヶ月間、就労移行支援での訓練（VBAエキスパート取得や職場実習の準備、スキーマ療法による自己理解等）をしながら、並行して本アプリの開発を行いました。自身の体調を管理しながら着実に開発を続けることを目指しました。
 # ブログ
-https://blog.hatena.ne.jp/neatTanaka/neattanaka.hatenablog.com/
+https://neattanaka.hatenablog.com/
+
