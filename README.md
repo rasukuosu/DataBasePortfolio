@@ -2,6 +2,9 @@
 # 概要
 　アニメーション制作会社の情報をシンプルに管理する、SQLiteベースのデスクトップアプリケーションです。
 データ操作（CRUD）に加え、MVVMパターンに基づいた設計を目指し開発しました。
+# 利用法
+https://github.com/rasukuosu/DataBasePortfolio/releases/tag/v1.0.0
+こちらのURLの「DataBasePorffolio_Release_1.0_win-x64.zip」をダウンロードいただき、ZIPファイルを展開のうえ、.exeファイルを実行して頂ければ、利用可能です
 # 開発背景
 ## 製作期間
 　2025/8~2026/2（６か月程度）  
