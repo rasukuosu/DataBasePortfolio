@@ -21,8 +21,16 @@
         </DataGrid>
         <!--ここから右側の入力フォーム-->
         <ScrollViewer Grid.Column="1" Margin="10">
-            <StackPanel>
-                <!-- コントロールをここに追加-->
+            <StackPanel Background="CadetBlue">
+                <Image Width="650" Height="300">
+                    <Image.Source>
+                        <BitmapImage DecodePixelHeight="200" DecodePixelWidth="180" UriSource="{Binding }"/>
+                    </Image.Source>
+                </Image>
+                <!--OpenFileDialog 用でその情報を格納するラベルとダイアログ、DDもここに実装-->
+                <!-- 各項目用のテキストボックス、「作者名」「所属」「ジャンル」TextBoxの入力欄 、「パス」の確認用Label。-->
+                <!-- 保存と新規作成と削除ボタンを置く-->
+               
             </StackPanel>
         </ScrollViewer>
     </Grid>
