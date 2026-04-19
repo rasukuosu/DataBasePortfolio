@@ -22,15 +22,23 @@
         <!--ここから右側の入力フォーム-->
         <ScrollViewer Grid.Column="1" Margin="10">
             <StackPanel Background="CadetBlue">
-                <Image Width="650" Height="300">
+        <!--画像表示-->
+                <!--<Image Width="650" Height="300">
                     <Image.Source>
-                        <BitmapImage DecodePixelHeight="200" DecodePixelWidth="180" UriSource="{Binding }"/>
+                        <BitmapImage DecodePixelHeight="200" DecodePixelWidth="180" UriSource="{Binding}"/>
                     </Image.Source>
-                </Image>
-                <!--OpenFileDialog 用でその情報を格納するラベルとダイアログ、DDもここに実装-->
-                <!-- 各項目用のテキストボックス、「作者名」「所属」「ジャンル」TextBoxの入力欄 、「パス」の確認用Label。-->
+                </Image>-->
+                <!--OpenFileDialog 用でその情報を格納するラベルとダイアログ、DDで画像からファイルパスを取得もここに実装(ファイルパス取得・メモリーストリーム(表示用と保存用)・-->
+                <TextBlock x:Name="DropArea" AllowDrop="True" Background="Wheat" Height="50" Width="650">ここにドロップ</TextBlock>
+                <Button x:Name="RefButton" Command="" Height="100" Width="100"/>
+                <!-- 各項目用のテキストボックス、「作者名」「所属」「ステータス」TextBoxの入力欄 、「パス」の確認用Label。-->
+                <TextBox x:Name="AuthorT" Height="50" Width="650"/>
+                <TextBox x:Name="AffiliationT" Height="50" Width="650"/>
+                <TextBox x:Name="StatusT" Height="50" Width="650"/>
                 <!-- 保存と新規作成と削除ボタンを置く-->
-               
+                <Button x:Name="SaveButton" Command="" Content="保存・上書き保存" Height="100" Width="100"/>
+                <Button x:Name="DeleteButton" Command="" Content="削除" Height="100" Width="100"/>
+                <Button x:Name="NewReButton" Command="" Content="新規作成を始める" Height="100" Width="100"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
