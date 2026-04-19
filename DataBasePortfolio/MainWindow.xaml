@@ -31,8 +31,10 @@
                 <!--OpenFileDialog 用でその情報を格納するラベルとダイアログ、DDで画像からファイルパスを取得もここに実装(ファイルパス取得・メモリーストリーム(表示用と保存用)・-->
                 <TextBlock x:Name="DropArea" AllowDrop="True" Background="Wheat" Height="50" Width="650">ここにドロップ</TextBlock>
                 <Button x:Name="RefButton" Command="" Height="100" Width="100"/>
-                <!-- 各項目用のテキストボックス、「作者名」「所属」「ステータス」TextBoxの入力欄 、「パス」の確認用Label。-->
+                <!-- 各項目用のテキストボックス、「パス」の確認用Label。「作者名」「所属」「ステータス」TextBoxの入力欄 、-->
+                <Label x:Name="PathL" Height="50" Width="650"/>
                 <TextBox x:Name="AuthorT" Height="50" Width="650"/>
+                <TextBox x:Name="NameT" Height="50" Width="650"/>
                 <TextBox x:Name="AffiliationT" Height="50" Width="650"/>
                 <TextBox x:Name="StatusT" Height="50" Width="650"/>
                 <!-- 保存と新規作成と削除ボタンを置く-->
