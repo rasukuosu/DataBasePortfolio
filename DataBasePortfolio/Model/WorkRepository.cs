@@ -12,48 +12,48 @@ namespace DataBasePortfolio.Model
     {
         public WorkRepository()
         {
-            using (var context = new CompanyContext())
+            using (var context = new WorkContext())
             {
                 context.Database.Migrate();//DBのマイグレーションを実行
             }
         }
         //Create(Add)
 
-        public void AddCompany(Company company)
+        public void AddWork(Work work)
         {
-            using (var context = new CompanyContext())
+            using (var context = new WorkContext())
             {
-                context.Companys.Add(company);
+                context.Works.Add(work);
                 context.SaveChanges();
             }
         }
         //Read
-        public List<Company> GetAllCompanys()
+        public List<Work> GetAllWorks()
         {
-            using (var context = new CompanyContext())
+            using (var context = new WorkContext())
             {
-                var query = from c in context.Companys//cはCompanyの範囲変数
-                            select c;
+                var query = from w in context.Works//wはWorkの範囲変数で頭文字
+                            select w;
                 return query.ToList(); //ToListでデータをList型に変換して返す
             }
         }
 
         //Update
-        public void Update(Company company)
+        public void Update(Work work)
         {
-            using (var context = new CompanyContext())
+            using (var context = new WorkContext())
             {
-                context.Companys.Update(company);
+                context.Works.Update(work);
                 context.SaveChanges();
             }
         }
         //Delete
 
-        public void RemoveCompany(Company company)
+        public void RemoveWork(Work work)
         {
-            using (var context = new CompanyContext())
+            using (var context = new WorkContext())
             {
-                context.Companys.Remove(company);
+                context.Works.Remove(work);
                 context.SaveChanges();
             }
 
