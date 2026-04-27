@@ -11,8 +11,8 @@ using System.Threading.Tasks;
 namespace DataBasePortfolio.Model
 {
     [Table("Works")]
-    [Index(nameof(WorksName), IsUnique =true)]
-    class Work : ObservableObject
+    [Index(nameof(WorkName), IsUnique =true)]
+    public class Work : ObservableObject
     {
         [Key]
         public int WorkId { get; set; }
@@ -35,12 +35,12 @@ namespace DataBasePortfolio.Model
         }
 
 
-        private string _worksName;//作品名を保存する変更通知用フィールドとエンティティプロパティ
+        private string _workName;//作品名を保存する変更通知用フィールドとエンティティプロパティ
         [Required]
-        public string WorksName
+        public string WorkName
         {
-            get => _worksName;
-            set => SetProperty(ref _worksName, value);
+            get => _workName;
+            set => SetProperty(ref _workName, value);
         }
         private string _author;//作者名を保存する変更通知用フィールドとエンティティプロパティ
         [Required]

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DataBasePortfolio.Model
 {
     //https://learn.microsoft.com/ja-jp/dotnet/api/microsoft.entityframeworkcore.dbcontext?view=efcore-9.0
-    internal class WorkRepository
+    public class WorkRepository
     {
         public WorkRepository()
         {
@@ -39,7 +39,7 @@ namespace DataBasePortfolio.Model
         }
 
         //Update
-        public void Update(Work work)
+        public void UpdateWork(Work work)
         {
             using (var context = new WorkContext())
             {

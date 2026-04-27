@@ -34,7 +34,7 @@ namespace DataBasePortfolio.ViewModel
             //引数付きコンストラクタに渡し
         }
 
-        private int result;//メッセージの種類を判別するためのフィールド
+
         //ViewとModelを同期させるためのプロパティ
         [ObservableProperty]
         private Company _Company;

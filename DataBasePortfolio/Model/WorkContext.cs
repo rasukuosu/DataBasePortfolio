@@ -1,23 +1,24 @@
-﻿using System;
-using System.IO;
+﻿using DataBasePortfolio;
+using DataBasePortfolio.ViewModel;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using DataBasePortfolio;
 
 namespace DataBasePortfolio.Model
 {
-    internal class WorkContext:DbContext
+    internal class WorkContext : DbContext
     {
-        public DbSet<Company> Companys { get; set; } //DBの項目をマッピング
+        public DbSet<Work> Works { get; set; } //DBの項目をマッピング
 
-        // ユーザー個別のアプリデータ保存先（AppData/Local）にフォルダとファイルパスを設定
+        // ユーザー個別のアプリデータ保存先（AppData/Local）にフォルダとファイルパスを設定,dbファイルを作成
         private readonly string dbPath = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             "DataBasePortfolio",
-            "company.db");
+            "works.db");
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,20 +33,20 @@ namespace DataBasePortfolio.Model
                                                               // DBの初期データ投入列がnullの時のみ、seedingを実行
                 .UseSeeding((context, _) =>
                 {
-                    var Companys = context.Set<Company>().FirstOrDefault(c => c.CompanyName == "サンプルアニメスタジオ");
-                    if (Companys == null)
+                    var Works = context.Set<Work>().FirstOrDefault(w => w.WorkName == "オープニングタイトル"); //データベースがdefaultの状態か確かめるための行
+                    if (Works == null)
                     {
-                        context.Set<Company>().Add(new Company { CompanyName = "サンプルアニメスタジオ", President = "サンプル描美" });
+                        context.Set<Work>().Add(new Work{ WorkName = "オープニングタイトル", Author = "サンプル描男" });
                         context.SaveChanges();
                     }
                 })
                 .UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
-                    var Companys = await context.Set<Company>().FirstOrDefaultAsync(c => c.CompanyName == "サンプルアニメスタジオ", cancellationToken);
-                    if (Companys == null)
+                    var Works = await context.Set<Work>().FirstOrDefaultAsync(w => w.WorkName == "オープニングタイトル", cancellationToken);
+                    if (Works == null)
                     {
                         // 非同期Addを実行
-                        await context.Set<Company>().AddAsync(new Company { CompanyName = "サンプルアニメスタジオ", President = "サンプル描美" }, cancellationToken);
+                        await context.Set<Work>().AddAsync(new Work { WorkName = "オープニングタイトル", Author = "サンプル描男" }, cancellationToken);
                         await context.SaveChangesAsync(cancellationToken);
                     }
                 });

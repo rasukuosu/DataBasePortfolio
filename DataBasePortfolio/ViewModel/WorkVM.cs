@@ -34,14 +34,14 @@ namespace DataBasePortfolio.ViewModel
             //引数付きコンストラクタに渡し
         }
 
-        private int _result;//メッセージの種類を判別するためのフィールド
+
         //ViewとModelを同期させるためのプロパティ
         [ObservableProperty]
         private Work _work;
         [RelayCommand]
         public void CreateWork()//  xaml側でbindしたプロパティ名 はメソッド名 + "Command"
         {
-            if (_work.Author == null || _work.WorksName == null || _work.Status == null)
+            if (_work.Author == null || _work.WorkName == null || _work.Status == null)
             {
                 MessageBox.Show("Errorが発生しました空欄がないかを確認してください");
                 return;
@@ -71,13 +71,13 @@ namespace DataBasePortfolio.ViewModel
         {
 
             _workRepository = new WorkRepository();
-            var workData = _workRepository.GetAllWorks()
+            var workData = _workRepository.GetAllWorks();
         }
         [RelayCommand]
         public void UpdateWork()
         {
 
-            if (_work.Author == null || _work.WorksName == null || _work.Status == null)
+            if (_work.Author == null || _work.WorkName == null || _work.Status == null)
             {
                 MessageBox.Show("Errorが発生しました空欄がないかを確認してください");
                 //_workRepository.ReloadEntity(_work);usingでcontextを都度破棄するため不要
@@ -91,9 +91,9 @@ namespace DataBasePortfolio.ViewModel
             }
             else
             {
-                _workRepository.Update(_work);//Modelのリポジトリを使ってDBを更新
+                _workRepository.UpdateWork(_work);//Modelのリポジトリを使ってDBを更新
                 //_work = new Work();//更新後、入力用のプロパティを初期化->必要ない可能性がある為コメントアウト
-                var workData = _workRepository.GetAllWorks()
+                var workData = _workRepository.GetAllWorks();
             }
 
 
